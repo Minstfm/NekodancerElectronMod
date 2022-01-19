@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+            body {
+                margin: 0;
+                height: 100vh;
+                background-color: #222222;
+            }
+	</style>
+	<title>Nekodancer</title>
+</head>
+<body>
+<script type="text/javascript" src="http://nekodancer.com/youtube-nkd.js"></script>
+<script type="text/javascript">
+
+	document.addEventListener("wheel", EVT => {
+		document.getElementById("swf2")["rouletteNav"](EVT.deltaY);
+	});
+
+	function navigateur() {
+		return "chargeur-electron";
+	}
+
+	function ouvrirPageNavigateur(LIEN) {
+		return window.ouvrirPageNavigateurElectron(LIEN);
+	}
+
+	function getSteamId() {
+		if (window.greenworks) {
+			let info = window.greenworks.getSteamId();
+			return {steamId: info.getRawSteamID(), screenName: info.getPersonaName()};
+		}
+	}
+
+	function setAchievement(CODE) {
+		if (window.greenworks) {
+			window.greenworks.activateAchievement(CODE,
+				function () {
+				},
+				function (err) {
+				});
+		}
+	}
+
+	function defActiviteDiscord(JOUEUR, SALON, IMAGE1, IMAGE2) {
+		if (window.defActiviteDiscordInterne) {
+			window.defActiviteDiscordInterne(JOUEUR, SALON, IMAGE1, IMAGE2);
+		}
+	}
+
+	function pleinEcran(OUI) {
+		if (OUI) {
+			document.getElementById("swf1").style.position = "fixed";
+			document.getElementById("swf1").style.left = "0";
+			document.getElementById("swf1").style.top = "0";
+			document.getElementById("swf1").style.width = "100%";
+			document.getElementById("swf1").style.height = "100%";
+		} else {
+			document.getElementById("swf1").style.position = "static";
+			document.getElementById("swf1").style.width = "800px";
+			document.getElementById("swf1").style.height = "600px";
+		}
+	}
+</script>
+<div id="nekodancer" style="width:100%;height:100%;">
+	<object
+		id="swf1" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+		width="100%"
+		height="100%"
+		align="middle">
+		<param name="allowScriptAccess" value="always"/>
+		<param name="movie" value="ChargeurNekodancer.swf"/>
+		<param name="menu" value="true"/>
+		<param name="quality" value="high"/>
+		<param name="bgcolor" value="#6A7495"/>
+		<embed
+			id="swf2"
+			src="http://nekodancer.com/ChargeurNekodancer.swf"
+			wmode="direct"
+			menu="true"
+			quality="high"
+			bgcolor="#6A7495"
+			width="100%"
+			height="100%"
+			name="Nekodancer"
+			align="middle"
+			swLiveConnect="true"
+			allowFullScreen="true"
+			allowScriptAccess="always"
+			type="application/x-shockwave-flash"
+		/>
+	</object>
+</div>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QEMD1DNH3C"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+
+	gtag('js', new Date());
+	gtag('config', 'G-QEMD1DNH3C');
+</script>
+
+</body>
+</html>

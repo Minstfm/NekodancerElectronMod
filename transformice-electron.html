@@ -27,29 +27,6 @@
 		return window.ouvrirPageNavigateurElectron(LIEN);
 	}
 
-	function getSteamId() {
-		if (window.greenworks) {
-			let info = window.greenworks.getSteamId();
-			return {steamId: info.getRawSteamID(), screenName: info.getPersonaName()};
-		}
-	}
-
-	function setAchievement(CODE) {
-		if (window.greenworks) {
-			window.greenworks.activateAchievement(CODE,
-				function () {
-				},
-				function (err) {
-				});
-		}
-	}
-
-	function defActiviteDiscord(JOUEUR, SALON, IMAGE1, IMAGE2) {
-		if (window.defActiviteDiscordInterne) {
-			window.defActiviteDiscordInterne(JOUEUR, SALON, IMAGE1, IMAGE2);
-		}
-	}
-
 	function pleinEcran(OUI) {
 		if (OUI) {
 			document.getElementById("swf1").style.position = "fixed";
@@ -119,13 +96,13 @@
 		height="100%"
 		align="middle">
 		<param name="allowScriptAccess" value="always"/>
-		<param name="movie" value="chargeur-steam.swf"/>
+		<param name="movie" value="TransformiceChargeur.swf"/>
 		<param name="menu" value="true"/>
 		<param name="quality" value="high"/>
 		<param name="bgcolor" value="#6A7495"/>
 		<embed
 			id="swf2"
-			src="chargeur-steam.swf"
+			src="TransformiceChargeur.swf"
 			wmode="direct"
 			menu="true"
 			quality="high"

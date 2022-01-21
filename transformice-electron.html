@@ -15,6 +15,19 @@
 <script type="text/javascript" src="youtube-tfm.js"></script>
 <script type="text/javascript" src="lib.js"></script>
 <script type="text/javascript">
+	var langue = navigator.language;
+        if (!langue) {
+                langue = navigator.browserLanguage;
+        }
+        langue = langue.substr(0, 2);
+	
+	function positionMolette(X, Y) {
+	}
+	function activerMolette(OUI, HAUT) {
+	}
+	function recupLangue() {
+		return langue;
+	}
 
 	document.addEventListener("wheel", EVT => {
 		document.getElementById("swf2")["rouletteNav"](EVT.deltaY);
@@ -120,7 +133,7 @@
 	</object>
 </div>
 <script>
-	ecouterMoletteSurJeu("transformice");
+	ecouterMoletteSurJeu("chargeur-electron");
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QEMD1DNH3C"></script>

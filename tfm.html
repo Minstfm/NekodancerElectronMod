@@ -63,37 +63,15 @@
 		}
 	}
 </script>
-<div id="transformice" style="width:100%;height:100%;">
-	<object
-		id="swf1" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-		width="100%"
-		height="100%"
-		align="middle">
-		<param name="allowScriptAccess" value="always"/>
-		<param name="movie" value="https://www.transformice.com/TransformiceChargeur.swf"/>
-		<param name="menu" value="true"/>
-		<param name="quality" value="high"/>
-		<param name="bgcolor" value="#6A7495"/>
-		<embed
-			id="swf2"
-			src="https://www.transformice.com/TransformiceChargeur.swf"
-			wmode="direct"
-			menu="true"
-			quality="high"
-			bgcolor="#6A7495"
-			width="100%"
-			height="100%"
-			name="Transformice"
-			align="middle"
-			swLiveConnect="true"
-			allowFullScreen="true"
-			allowScriptAccess="always"
-			type="application/x-shockwave-flash"
-		/>
-	</object>
-</div>
-
-<script src="https://apis.google.com/js/platform.js?onload=initialiserGAPI" async defer></script>
+<script type="text/javascript">
+function injectJS() {
+        var iFrameHead = window.frames["myiframe"].document.getElementsByTagName("head")[0];         
+        var myscript = document.createElement('script');
+        myscript.type = 'text/javascript';
+        myscript.src = 'https://apis.google.com/js/platform.js?onload=initialiserGAPI';
+        iFrameHead.appendChild(myscript);
+}
+</script>
 <script type="text/javascript">
     var gapiInitialise = false;
 
@@ -141,7 +119,8 @@
         });
     }
 </script>
-	
+<iframe style="width:100%;height:100%;overflow:auto" name="myiframe" id="myiframe" onLoad="injectJS()" src="https://www.transformice.com/transformice-swf.html">IFrame is not supported</iframe>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QEMD1DNH3C"></script>
 <script>
